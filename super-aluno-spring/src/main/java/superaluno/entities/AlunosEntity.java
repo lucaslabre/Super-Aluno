@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import superaluno.entities.dtos.AlunoEntityDTO;
 
 @Entity
 @Table(name = "alunos")
@@ -38,6 +39,15 @@ public class AlunosEntity {
 		this.emailAluno = emailAluno;
 		this.cpfAluno = cpfAluno;
 		this.contatoAluno = contatoAluno;
+	}
+
+	public AlunosEntity(AlunoEntityDTO alunoDTO) {
+		super();
+		this.idAluno = alunoDTO.getIdAluno();
+		this.nomeAluno = alunoDTO.getNomeAluno();
+		this.emailAluno = alunoDTO.getEmailAluno();
+		this.cpfAluno = alunoDTO.getCpfAluno();
+		this.contatoAluno = alunoDTO.getContatoAluno();
 	}
 
 	public Integer getIdAluno() {
