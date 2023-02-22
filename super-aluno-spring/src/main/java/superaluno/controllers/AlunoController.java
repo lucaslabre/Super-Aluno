@@ -55,6 +55,13 @@ public class AlunoController {
 	
 	@PostMapping()
 	public AlunoEntityDTO createAluno(@RequestBody AlunoEntityDTO alunoDTO) {
-		return this.alunoService.createAluno(alunoDTO);
+		try {
+			logger.info("Ativando método createAluno");
+			return this.alunoService.createAluno(alunoDTO);
+		}
+		catch(Exception e) {
+			logger.info(e.toString());
+			return null;
+		}
 	}
 }

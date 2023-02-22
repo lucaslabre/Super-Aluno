@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>Incluir Aluno</h2>
+
+<form [formGroup]="form" class="form-group">
+  <mat-dialog-content class="mat-typography">
+    <mat-form-field class="full-width">
+      <mat-label>Nome</mat-label>
+      <input formControlName="nomeAluno" matInput />
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>E-mail</mat-label>
+      <input formControlName="emailAluno" matInput />
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>CPF</mat-label>
+      <input formControlName="cpfAluno" matInput />
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Telefone</mat-label>
+      <input
+        formControlName="contatoAluno"
+        matInput
+        placeholder="(21) 98888-8888"
+      />
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button
+      mat-button
+      [mat-dialog-close]="includedAluno"
+      (click)="createAluno()"
+      cdkFocusInitial
+    >
+      Incluir
+    </button>
+  </mat-dialog-actions>
+</form>

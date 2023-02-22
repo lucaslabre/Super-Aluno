@@ -1,3 +1,26 @@
 <app-top-bar></app-top-bar>
 
-<p>alunos-page works!</p>
+<mat-card>
+  <mat-card-content>
+    <table mat-table [dataSource]="allAluno" class="mat-elevation-z8">
+      <!-- idAluno Column -->
+      <ng-container matColumnDef="idAluno">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let aluno">{{aluno.idAluno}}</td>
+      </ng-container>
+
+      <!-- nomeAluno Column -->
+      <ng-container matColumnDef="nomeAluno">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let aluno">{{aluno.nomeAluno}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+      <tr mat-row *matRowDef="let row; columns: colunas"></tr>
+    </table>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button (click)="createAluno()" mat-raised-button color="primary">Incluir Aluno</button>
+  </mat-card-actions>
+</mat-card>
